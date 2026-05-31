@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contagem de Equipe</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#121212">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <h1>📋 Contagem de Equipe</h1>
+
+    <button id="settingsBtn" class="icon-btn">
+      ⚙️
+    </button>
+
+  </header>
+
+  <main class="container">
+
+    <section class="sector-selector">
+
+      <label>📍 Setor</label>
+
+      <select id="sectorSelect"></select>
+
+    </section>
+
+    <section id="emptySector" class="empty-state">
+
+      <p>Nenhum setor cadastrado.</p>
+
+      <button id="createFirstSectorBtn" class="primary-btn">
+        ➕ Criar primeiro setor
+      </button>
+
+    </section>
+
+    <section id="categoriesContainer"></section>
+
+    <section id="totalCard" class="total-card">
+
+      <h2>👥 Total: <span id="totalCount">0</span></h2>
+
+    </section>
+
+    <section class="preview-card">
+
+      <h2>📄 Prévia</h2>
+
+      <pre id="previewText"></pre>
+
+    </section>
+
+    <section class="actions">
+
+      <button id="copyBtn" class="primary-btn">
+        📋 Copiar Mensagem
+      </button>
+
+      <button id="resetBtn" class="danger-btn">
+        🔄 Resetar Setor
+      </button>
+
+    </section>
+
+  </main>
+
+  <!-- Modal Configurações -->
+
+  <div id="settingsModal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h2>⚙️ Configurações</h2>
+
+        <button id="closeSettingsBtn">
+          ✖
+        </button>
+
+      </div>
+
+      <div class="settings-section">
+
+        <h3>Setores</h3>
+
+        <div id="sectorList"></div>
+
+        <button id="addSectorBtn" class="primary-btn">
+          ➕ Novo Setor
+        </button>
+
+      </div>
+
+      <div id="categoryEditor" class="settings-section hidden">
+
+        <h3 id="categoryEditorTitle">
+          Categorias
+        </h3>
+
+        <div id="categoryList"></div>
+
+        <button id="addCategoryBtn" class="primary-btn">
+          ➕ Nova Categoria
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Modal Novo Setor -->
+
+  <div id="sectorModal" class="modal hidden">
+
+    <div class="modal-content small">
+
+      <h2>Novo Setor</h2>
+
+      <input
+        id="sectorNameInput"
+        type="text"
+        placeholder="Nome do setor">
+
+      <button id="saveSectorBtn" class="primary-btn">
+        Salvar
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Modal Nova Categoria -->
+
+  <div id="categoryModal" class="modal hidden">
+
+    <div class="modal-content small">
+
+      <h2>Nova Categoria</h2>
+
+      <input
+        id="categoryNameInput"
+        type="text"
+        placeholder="Nome">
+
+      <input
+        id="categoryLimitInput"
+        type="number"
+        placeholder="Limite (opcional)">
+
+      <button id="saveCategoryBtn" class="primary-btn">
+        Salvar
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Modal Confirmação -->
+
+  <div id="confirmModal" class="modal hidden">
+
+    <div class="modal-content small">
+
+      <h2>⚠️ Confirmação</h2>
+
+      <p id="confirmText"></p>
+
+      <div class="confirm-actions">
+
+        <button id="cancelConfirmBtn">
+          Cancelar
+        </button>
+
+        <button id="confirmBtn" class="danger-btn">
+          Confirmar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
